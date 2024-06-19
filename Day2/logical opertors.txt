@@ -1,0 +1,27 @@
+//And operator
+let number = 15;
+
+if (number>10 && number<20 ) {
+    console.log("The number is between 10 and 20");
+} 
+else{
+    console.log("The number does not meet the criteria");
+}
+
+//Or operator
+
+let number = 15;
+
+if (number%2===0 || number%3===0 ) {
+    console.log("The number is divisible 2 or 3");
+} 
+
+//not operator
+
+let isEnabled = false;
+
+if (!isEnabled) {
+    console.log("The feature is disabled.");
+} else {
+    console.log("The feature is enabled.");
+}
