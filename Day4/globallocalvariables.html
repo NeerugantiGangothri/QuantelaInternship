@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <h1>Local vs Global Variables in JavaScript</h1>
+    <script>
+        let globalV = "I'm a global variable";
+
+        function myFunction2() {
+            // Local variable
+            let localV = "I'm a local variable";
+            console.log(globalV); // Both variables are accessible here
+            console.log(localV);  
+        }
+
+        myFunction2();
+
+        console.log(globalV); // Accessible here
+        console.log(localV);  // Not accessible here, throws ReferenceError: localV is not defined
+    </script>
+</body>
+</html>
