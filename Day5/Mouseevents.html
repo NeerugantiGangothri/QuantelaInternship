@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <h1>Mouse Events Example</h1>
+    <div id="mouseArea" style="width: 500px; height: 200px; border: 1px solid black;background-color:pink;">
+        Mouse is over this area and click inside it.
+    </div>
+    <p id="eventMessage"></p>
+
+    <script>
+       document.addEventListener("DOMContentLoaded", function() {
+    const mouseArea = document.getElementById("mouseArea");
+    const eventMessage = document.getElementById("eventMessage");
+    mouseArea.addEventListener("mouseover", function() {
+        eventMessage.textContent = "Mouse is over the area.";
+    });
+    mouseArea.addEventListener("mouseout", function() {
+        eventMessage.textContent = "Mouse left the area.";
+    });
+    mouseArea.addEventListener("mousedown", function() {
+        eventMessage.textContent = "Mouse button pressed down.";
+    });
+    mouseArea.addEventListener("mouseup", function() {
+        eventMessage.textContent = "Mouse button released.";
+    });
+});
+
+    </script>
+</body>
+</html>

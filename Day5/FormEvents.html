@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <h1>Form Events Example</h1>
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <br><br>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age">
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <p id="formMessage"></p>
+
+    <script>
+        const myForm = document.getElementById("myForm");
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const ageInput = document.getElementById("age");
+        const formMessage = document.getElementById("formMessage");
+        myForm.addEventListener("submit", function(event) {
+            event.preventDefault(); 
+            formMessage.textContent = 'Form submitted with: ' +
+                                      'Name="' + nameInput.value + '", ' +
+                                      'Email="' + emailInput.value + '", ' +
+                                      'Age="' + ageInput.value + '"';
+        });
+        // Focus event
+        nameInput.addEventListener("focus", function() {
+            formMessage.textContent = "Name input focused.";
+        });
+        // Blur event
+        nameInput.addEventListener("blur", function() {
+            formMessage.textContent = "Name input lost focus.";
+        });
+        // Change event
+        ageInput.addEventListener("change", function() {
+            formMessage.textContent = 'Age changed to: ' + ageInput.value;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<body>
+    <h1>JavaScript Events Example</h1>
+    <button id="btn">Click Me!</button>
+    <p id="msg"></p>
+    <input type="text" id="inpt" placeholder="Type something...">
+    <p id="inputMessage"></p>
+    <script>
+document.addEventListener("click", function() {
+       const button = document.getElementById("btn");
+    const message = document.getElementById("msg");
+        button.addEventListener("click", function() {
+        message.textContent = "Button was clicked!";
+    });
+    const input = document.getElementById("inpt");
+    const inputMessage = document.getElementById("inputMessage");
+
+    input.addEventListener("input", function() {
+        inputMessage.textContent = "You Entered: " + input.value;
+    });
+});
+</script>
+</body>
+</html>
