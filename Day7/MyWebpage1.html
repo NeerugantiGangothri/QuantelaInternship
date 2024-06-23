@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <h1>Interactive Greeting</h1>
+    <p>Enter your name:</p>
+    <input type="text" id="nameInput">
+    <button onclick="displayGreeting()">Greet Me</button>
+    <p id="greeting"></p>
+
+    <script>
+        function displayGreeting() {
+            var name = document.getElementById("nameInput").value;
+            var greetingMessage = "Hello, " + name + "!";
+            document.getElementById("greeting").innerText = greetingMessage;
+        }
+    </script>
+</body>
+</html>
