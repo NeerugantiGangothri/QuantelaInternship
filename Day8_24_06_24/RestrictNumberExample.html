@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <label for="number">Enter a number:</label>
+    <input type="text" id="number">
+
+    <script>
+        const inputn= document.getElementById('number');
+
+      
+        inputn.addEventListener('keydown', function (e) {
+            if (
+                !/[0-9]/.test(e.key) && 
+                !['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight'].includes(e.key) // Allow control keys
+            ) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="jquery-3.7.1.js" type="text/javascript"></script>
+</head>
+<body>
+    <label for="Input">Enter a number:</label>
+    <input type="text" id="Input">
+
+    <script>
+
+            $('#Input').on('keydown', function (e) {
+                if ( 
+                    !/[0-9]/.test(e.key) && 
+                    !['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight'].includes(e.key) // Allow control keys
+                ) {
+                    e.preventDefault();
+                }
+            });
+      //  });
+    </script>
+</body>
+</html>
