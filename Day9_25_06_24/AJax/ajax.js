@@ -12,9 +12,17 @@ ar.onload= function(){
    if(ar.status === 200){
       let data=ar.responseText;
       console.log(data);
+      displayTextdata(data);
    }else {
     console.error('Failed to load text data:', ar.statusText);
    }
 };
 
 });
+
+let displayTextdata= (data) =>{
+   let textDiv = document.querySelector('#txt');
+   let newData = document.createElement('p');
+   newData.textContent = data;
+   textDiv.appendChild(newData);
+};
