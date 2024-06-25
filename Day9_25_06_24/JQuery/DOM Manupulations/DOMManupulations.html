@@ -1,0 +1,24 @@
+!DOCTYPE html>
+<html>
+<head>
+    <script src="jquery-3.7.1.js" type="text/javascript"></script>
+<script>
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    alert("Text: " + $("#dom").text());
+  });
+  $("#btn2").click(function(){
+    alert("HTML: " + $("#dom").html());
+  });
+});
+</script>
+</head>
+<body>
+
+<p id="dom">This is some <i>italic</i> text in a paragraph.</p>
+
+<button id="btn1">Show Text</button>
+<button id="btn2">Show HTML</button>
+
+</body>
+</html>
