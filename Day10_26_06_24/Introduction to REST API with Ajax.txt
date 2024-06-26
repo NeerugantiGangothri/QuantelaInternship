@@ -1,0 +1,13 @@
+REST (Representational State Transfer) is an architectural style used for designing networked applications. RESTful APIs are services that follow REST principles, allowing clients to interact with servers using standard HTTP methods like GET, POST, PUT, DELETE, etc. AJAX (Asynchronous JavaScript and XML) is a technique for creating asynchronous web applications, allowing web pages to be updated asynchronously by exchanging small amounts of data with the server behind the scenes.
+
+Here's how you can use AJAX to interact with a RESTful API.
+
+Basic Concepts of REST API
+Resources: In REST, resources are the key abstractions. Each resource is identified by a unique URL.
+HTTP Methods:
+GET: Fetch data from the server.->READ
+POST: Send data to the server to create a new resource.->CREATE
+PUT: Update an existing resource.->UPDATE
+DELETE: Delete a resource.->DELETE
+
+----------------------------------------------------------

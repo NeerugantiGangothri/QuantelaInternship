@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Put Request in AJAX</title>
+    </head>
+<body>
+<script>
+   function updateDoc() {
+      // Creating XMLHttpRequest object
+      var putreq = new XMLHttpRequest();
+      // Creating call back function
+      putreq.onreadystatechange = function() {
+         if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("sample").innerHTML = this.responseText;
+            console.log("Data Updated Successfully");
+         }
+      };
+      // Open the given file
+      putreq.open("PUT", "https://jsonplaceholder.typicode.com/todos/1", true);
+      // Setting HTTP request header 
+      putreq.setRequestHeader('Content-type', 'application/json')
+      // Sending the JSON document to the server 
+      putreq.send(JSON.stringify({
+         "title": "Apple",
+         "userId": 1,
+         "id": 1,
+         "body": "red"
+      }));
+   }
+</script>
+<h2>Example of PUT Request</h2>
+<button type="button" onclick="updateDoc()">Update Data</button>
+<div id="sample"></div>
+</body>
+</html>
