@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Get Request in AJAX</title>
+    </head>
+<body>
+<script>
+   function displayRecords() {
+      // Creating XMLHttpRequest object
+      var greq = new XMLHttpRequest();
+      // Creating call back function
+      greq.onreadystatechange = function() {
+         if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("example").innerHTML = this.responseText;
+         }
+      };
+      // Open the given file
+      greq.open("GET", "https://jsonplaceholder.typicode.com/todos/10", true);
+      // Sending the request to the server
+      greq.send();
+   }
+</script>
+<div id="example">
+   <p>Please click on the button to fetch 10th record from the server</p>
+   <button type="button" onclick="displayRecords()">Click Here</button>
+</div>
+</body>
+</html>
