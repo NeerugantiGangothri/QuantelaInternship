@@ -136,4 +136,34 @@ console.log(arr.sort((a, b) => a - b));
   7, 8, 9, 10
 ]
 */
+let num = 123;
+let str = num.toString();
+console.log(str); // "123"
+
+let fixedNum = num.toFixed(2);
+console.log(fixedNum); // "123.46"
+
+let intNum = Number.parseInt("123", 10);
+console.log(intNum); // 123
+
+let binNum = Number.parseInt("111", 2); // Parsing binary number
+console.log(binNum); // 7
+
+console.log(Number.MAX_VALUE); // 1.7976931348623157e+308
+console.log(Number.MIN_VALUE); // 5e-324
+console.log(Number.isNaN(NaN)); // true
+console.log(Number.isNaN(123)); // false
+
+let bool = true;
+let str = bool.toString();
+console.log(str); // "true"
+
+console.log(Boolean(1));       // true
+console.log(Boolean(0));       // false
+console.log(Boolean("hello")); // true
+console.log(Boolean(""));      // false
+console.log(Boolean(null));    // false
+console.log(Boolean(undefined)); // false
+console.log(Boolean({}));      // true
+console.log(Boolean([]));      // true
 
