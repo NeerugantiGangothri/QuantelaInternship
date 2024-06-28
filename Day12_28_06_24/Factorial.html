@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+    <title>Factorial Of Number</title>
+</head>
+<body>
+    <input type="number" id="num" placeholder="Enter The Number">
+    <button onclick="factorial()">Factorial</button>
+    <p id="result"></p>
+    <script>
+        function factorial() {
+            var num = document.getElementById("num").value;
+            var result = 1;
+            for (var i = 1; i <= num; i++) {
+                result = result * i;
+            }
+            document.getElementById("result").innerHTML = `Factorial Of ${num} is ${result}`;
+        }
+        </script>
+</body>

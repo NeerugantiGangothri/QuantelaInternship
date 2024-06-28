@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+    <title>Palindrome Check</title>
+</head>
+<body>
+    <input type="text" id="string" placeholder="Enter Your String">
+    <button onclick="checkPalindrome()">Check</button>
+    <p id="result"></p>
+    <script>
+        function checkPalindrome() {
+            var string = document.getElementById("string").value;
+            var reverseString = string.split('').reverse().join('');
+            if (string == reverseString) {
+                document.getElementById("result").innerHTML = "Palindrome";
+                } 
+            else {
+                document.getElementById("result").innerHTML = "Not Palindrome";
+                }
+        }
+    </script>
+</body>

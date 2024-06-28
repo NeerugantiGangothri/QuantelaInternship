@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+    <title>Fibonacci Sereis</title>
+</head>
+<body>
+    <input type="number" id="num" placeholder="Enter value">
+    <button onclick="fibonacci()">Calculate</button>
+    <p id="result"></p>
+    <script>
+        function fibonacci() {
+            var num = document.getElementById("num").value;
+            var result = document.getElementById("result");
+            var a = 0;
+            var b = 1;
+            var c;
+            result.innerHTML = "Fibonacci Series: ";
+            for (var i = 1; i <= num; i++) {
+                c = a + b;
+                result.innerHTML += c + " ";
+                a = b;
+                b=c;
+            }
+        }
+    </script>
+</body>
