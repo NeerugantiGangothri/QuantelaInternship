@@ -1,0 +1,41 @@
+<!-- Example for getElementByTagName -->
+<!DOCTYPE html>
+<html>
+    <body>
+        <p>This is para1</p>
+        <p>This is para2</p>
+        <div id="op"></div>
+        <script>
+            const pele = document.getElementsByTagName('p');
+            document.getElementById("op").innerHTML ="The first p element "+ pele[0].innerHTML + "<br>" +
+                                                      "The second p element "+ pele[1].innerHTML;
+        </script>
+    </body>
+</html>
+
+<!-- Example Codes -->
+ <!DOCTYPE html>
+ <html>
+    <body>
+        <h2>Hello JavaScript</h2>
+    <script>
+        let h2=document.querySelector('h2');
+        h2.innerHTML=h2.innerHTML+" from Gangothri";
+    </script>
+    </body>
+    </html>
+
+<!-- creating button and giving style attributes to the button using createElement -->
+ <!DOCTYPE html>
+ <html>
+    <body>
+        <p></p>
+        <script>
+            let btn=document.createComment("button");
+            btn.innerText="Click Me";
+            // btn.style.color="white";
+            // btn.style.backgroundColor="red";
+            document.querySelector("p").prepend("btn");
+        </script>
+    </body>
+</html>

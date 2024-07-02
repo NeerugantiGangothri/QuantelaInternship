@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>createElement() in JavaScript</title>
+    </head>
+<body>
+    <div id="demo"></div>
+    <script>
+        let para=document.createElement('p');
+        let btn=document.createElement('button');
+        btn.textContent="Click Here";
+        btn.addEventListener('click',function(){
+            alert("Button Clicked");
+        })
+        para.textContent="This is a paragraph created using createElement() method.";
+        document.getElementById('demo').appendChild(para);
+        document.getElementById('demo').appendChild(btn);
+
+    </script>
+</body>
+</html>
+
+<!-- QuerySelector Example in DOM -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>querySelector for Radio Buttons and Checkboxes</title>
+</head>
+<body>
+  <div>
+    <h2>Select your Gender</h2>
+    <input type="radio" id="female" name="gender" value="Female">
+    <label for="female">Female</label><br>
+    <input type="radio" id="male" name="gender" value="Male">
+    <label for="male">Male</label><br>
+    <input type="radio" id="other" name="gender" value="Other">
+    <label for="other">Other</label><br>
+    <button id="selected-gender">Show Selected Gender</button>
+  </div>
+
+  <div>
+    <h2>Select your hobbies:</h2>
+    <input type="checkbox" id="reading" name="hobby" value="Reading">
+    <label for="reading">Reading</label><br>
+    <input type="checkbox" id="traveling" name="hobby" value="Traveling">
+    <label for="traveling">Traveling</label><br>
+    <input type="checkbox" id="cooking" name="hobby" value="Cooking">
+    <label for="cooking">Cooking</label><br>
+    <button id="selected-hobbies">Show Selected Hobbies</button>
+  </div>
+
+  <script>
+     function clearCheckBoxes(name) {
+      const checkBoxes = document.querySelectorAll(`input[name="${name}"]`);
+      checkBoxes.forEach(checkbox => {
+        checkbox.checked = false;
+      });
+    }
+    function clearRadioButtons(name) {
+        const gender = document.querySelector('input[name="gender"]:checked');
+                if (gender) gender.checked = false;
+    }
+    document.querySelector('#selected-gender').addEventListener('click', function() {
+      const selectedGender = document.querySelector('input[name="gender"]:checked');
+      if (selectedGender) {
+        alert(`Selected gender: ${selectedGender.value}`);
+      } else {
+        alert('No Gender Selected');
+      }
+      clearRadioButtons('gender');
+    });
+
+    document.querySelector('#selected-hobbies').addEventListener('click', function() {
+      const selectedHobbies = document.querySelectorAll('input[name="hobby"]:checked');
+      if (selectedHobbies.length > 0) {
+        const hobbies = Array.from(selectedHobbies).map(checkbox => checkbox.value);
+        alert(`Selected hobbies: ${hobbies.join(', ')}`);
+      } else {
+        alert('No hobbies selected');
+      }
+      clearCheckBoxes('hobby');
+    });
+  </script>
+</body>
+</html>
+
+<!-- getElementByClassName Example -->
+<html>
+    <body>
+       <div class = "skill"> JavaScript</div>
+       <div id = "output">Iam Learning </div>
+       <script>
+          const divEle = document.getElementsByClassName('skill');
+          document.getElementById("output").innerHTML += divEle[0].innerHTML;
+       </script>
+    </body>
+    </html>
+
+<!-- getElementByTagName Example -->
+
+

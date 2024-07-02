@@ -1,0 +1,63 @@
+<!-- DOM methods are used to perform a particular action on HTML elements.
+The DOM represents a HTML document or web page with a logical tree. 
+In the tree, each branch ends in a node, and each node contains objects. 
+DOM methods allow us programmatic access to the tree. 
+Using the DOM methods, we can change the document's structure, style, or content.
+can use DOM methods to access HTML elements using id, attribute, tag name, class name, etc., 
+add events to the document or HTML elements, add new HTML elements to the DOM, etc.
+Syntax:
+document.methodName(); (or)
+window.document.MethodName()
+ -->
+
+ <!-- JavaScript document.getElementById() Method: it is one of the major process to access the html elements using id 
+  Example for document.getElementById()-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Example for DOM</title>
+    </head>
+    <body>
+        <button onclick = "getDatails()"> Click Here </button>
+        <p id = "output"> </p>
+        <script>
+           function getDatails() {
+              document.getElementById("output").innerHTML = 
+                 "Hii This is Example code for innerHTML in DOM";
+           }
+        </script>
+    </body>
+</html>
+
+<!-- Example for addEventListener : Takes the event name as first parameter and callback function which is  second parameter  -->
+ <!DOCTYPE html>
+ <html>
+    <head>
+        <title>Example for addEventListener</title>
+    </head>
+    <body>
+        <button id="btn">Click Here</button>
+        <script>
+            document.getElementById("btn").addEventListener("click", function(){
+                alert("Hii This is Example for addEventListener in DOM");
+                });
+        </script>
+    </body>
+</html>        
+
+<!-- The document.write() method adds the text or HTML to the document. It replaces the content of the document with the HTML passed as an argument of the method. -->
+ <!DOCTYPE html>
+ <html>
+    <head>
+        <title>Example for document.write() Method</title>
+    </head>
+    <body>
+        <br>
+        <button onclick="writeText()">Click</button>
+        <script>
+            function writeText() {
+                document.write("Hii This is Example for document.write() Method in DOM");
+                }
+        </script>        
+    </body>
+</html>    

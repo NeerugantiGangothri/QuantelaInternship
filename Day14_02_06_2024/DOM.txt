@@ -1,0 +1,34 @@
+List of DOM Methods
+
+Method	Description
+addEventListener()	-->It is used to add an event listener to the document.
+adoptNode() -->It is used to adopt the node from the other documents.
+append() -->It appends the new node or HTML after the last child node of the document.
+caretPositionFromPoint() -->It returns the caretPosition object, containing the DOM node based on the coordinates passed as an argument.
+close()	-->It closes the output stream opened using the document.open() method.
+createAttribute() -->It creates a new attribute node.
+createAttributeNS()	-->It creates a new attribute node with the particular namespace URI.
+createComment()	-->It creates a new comment node with a specific text message.
+createDocumentFragment()	-->It creates a DocumentFragment node.
+createElement()	-->It creates a new element node to insert into the web page.
+createElementNS()	-->It is used to create a new element node with a particular namespace URI.
+createEvent()	-->It creates a new event node.
+createTextNode()	-->It creates a new text node.
+elementFromPoint()	-->It accesses the element from the specified coordinates.
+elementsFromPoint()	-->It returns the array of elements that are at the specified coordinates.
+getAnimations()	-->It returns the array of all animations applied on the document.
+getElementById()	-->It accesses the HTML element using the id.
+getElementsByClassName()	-->It accesses the HTML element using the class name.
+getElementsByName()	-->It accesses the HTML element using the name.
+getElementsByTagName()	-->It accesses the HTML element using the tag name.
+hasFocus()	-->It returns the boolean value based on whether any element or document itself is in the focus.
+importNode()	-->It is used to import the node from another document.
+normalize()	-->It removes the text nodes, which are empty, and joins other nodes.
+open()	-->It is used to open a new output stream.
+prepand()	-->It is used to insert the particular node before all nodes.
+querySelector()	-->It is used to select the first element that matches the css selector passed as an argument.
+querySelectorAll()	-->It returns the nodelist of the HTML elements, which matches the multiple CSS selectors.
+removeEventListener()	-->It is used to remove the event listener from the document.
+replaceChildren()	-->It replaces the children nodes of the document.
+write()	-->It is used to write text, HTML, etc., into the document.
+writeln()	-->It is similar to the write() method but writes each statement in the new line.
