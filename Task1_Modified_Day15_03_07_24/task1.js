@@ -12,7 +12,7 @@ function addRow() {
         alert('Please fill all the fields');
      
     }
-    if (isDuplicate(name, fname, age, dob, gender, graduate, skills)) {
+    if (isDuplicate(name, fname, age, dob, gender.value, graduate.value, skills)) {
         alert('Duplicates are not allowed');
        
     }
