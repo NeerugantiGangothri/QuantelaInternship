@@ -1,0 +1,35 @@
+Classes and Objects:
+Prototypes in JS:-
+A javaScript is an entity having state and behaviour(Properties and Methods)  
+JS Objects have a special property called prototype.
+We can set prototype using __proto__
+
+If object & prototype have same method, objects method will be used.
+
+Classes in JS:-
+Class is a program-code template for creating objects.
+Those Objects will have some state(variables) & some behaviour(functions) in it.
+
+syntax - class MyClass{
+constructor(){......}
+myMethod(){.......}
+}
+
+let myObj=new MyClass();
+
+Constructor() method in js:-
+Automatically invokes by new
+Initializes object
+
+Inheritance in JS:-
+Inheritance is a process of creating new class from existing class.
+
+syntax:
+class Parent{
+    constructor(){......}
+    myMethod(){.......}
+    }
+class Child extends Parent{
+    constructor(){......}
+    myMethod(){.......}
+}
