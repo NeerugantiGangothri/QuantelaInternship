@@ -1,0 +1,81 @@
+
+<!-- Error handling, "try...catch" in javascript
+syntax: try{
+            //code
+           }
+            catch{
+            //Error Handling
+            }
+            */
+/*Error Name Values
+Six different values can be returned by the error name property:
+
+Error Name	Description
+EvalError	An error has occurred in the eval() function
+RangeError	A number "out of range" has occurred
+ReferenceError	An illegal reference has occurred
+SyntaxError	A syntax error has occurred
+TypeError	A type error has occurred
+URIError	An error in encodeURI() has occurred -->
+
+<!-- <!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Errors</h1>
+<h2>The RangeError</h2>
+
+<p>Can't Evaluate the value</p>
+
+<p id="demo">
+
+<script>
+let num = 1;
+try {
+    let result = eval('2 + ');
+}
+catch(err) {
+  document.getElementById("demo").innerHTML = err.name;
+}
+</script>
+
+</body>
+</html>
+ -->
+ <!DOCTYPE html>
+ <html>
+ <head>
+     <title>Error Handling</title>
+ </head>
+ <body>
+ 
+ <h2>JavaScript Error Handling Example</h2>
+ <p id="output1"></p>
+ <p id="output2"></p>
+ <p id="output3"></p>
+ <script>
+ try {
+     let result = eval('2 + ');
+     document.getElementById('output1').innerText = 'Result: ' + result;  // 4
+ } catch (e) {
+     document.getElementById('output1').innerText = e.name + ': ' + e.message;
+ }
+ try {
+    // This will cause a RangeError: Invalid array length
+    let arr = new Array(-1);
+} catch (e) {
+    document.getElementById('output2').innerText = e.name + ': ' + e.message;  // RangeError: Invalid array length
+}
+
+try {
+    // This will cause a RangeError: Exponent out of range
+    let num = Math.pow(10, 1000);
+    document.getElementById('output3').innerText += '\n' + e.name + ': ' + e.message; 
+} catch (e) {
+    document.getElementById('output3').innerText += '\n' + e.name + ': ' + e.message;  // RangeError: Exponent out of range
+}
+ </script>
+ 
+ </body>
+ </html>
+ 
+

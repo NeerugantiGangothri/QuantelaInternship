@@ -1,0 +1,69 @@
+JavaScript includes features of sending asynchronous http request using XMLHttpRequest object.
+Ajax is about using this ability of JavaScript to send asynchronous http request 
+and get the xml data as a response (also in other formats) and update the part of a web page (using JavaScript) without reloading or refreshing entire web page.
+
+AJAX is a new technique for creating better, faster, and more interactive web applications with the help of XML, HTML, CSS, and Java Script
+
+Sending an XMLHttpRequest
+A common JavaScript syntax for using the XMLHttpRequest
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+ if (this.readyState == 4 && this.status == 200) {
+ // Typical action to be performed when the document is ready:
+ document.getElementById(“demo”).innerHTML = xhttp.responseText;
+ }
+};
+xhttp.open(“GET”, “filename”, true);
+xhttp.send();
+
+Explainatin:
+The first line in the example above creates an XMLHttpRequest object:
+
+var xhttp = new XMLHttpRequest();
+
+The onreadystatechange property specifies a function to be executed every time the status of the XMLHttpRequest object changes:
+xhttp.onreadystatechange = function()
+
+if (this.readyState == 4 && this.status == 200)
+The readyState==4 and status==200 states that response is ready
+
+The responseText property returns the server response as a text string.
+The text string can be used to update a web page:
+document.getElementById(“demo”).innerHTML = xhttp.responseText;
+
+The onreadystatechange Property:
+The readyState property holds the status of the XMLHttpRequest.
+The onreadystatechange property defines a function to be executed when the readyState changes.
+The status property and the statusText property holds the status of the XMLHttpRequest object.
+Ready State :
+Holds the status of the XMLHttpRequest.
+
+0: request not initialized
+1: server connection established
+2: request received
+3: processing request
+4: request finished and response is readystatus
+status :
+100: "Continue"
+200: "OK"
+400: "Bad Request"
+401: "Unauthorized"
+403: "Forbidden"
+404: "Page not found"
+500: "Internal Server Error"
+statusText :
+Returns the status-text
+
+“OK”
+“Not Found”
+The onreadystatechange function is called every time the readyState changes.
+
+Methods :
+The jQuery library includes various methods to send Ajax requests. These methods internally use XMLHttpRequest object of JavaScript.
+
+ajax() : Sends asynchronous http request to the server .
+get() : Sends http GET request to load the data from the server .
+Post() : Sends http POST request to submit or load the data to the server.
+delete() : Sends http delete request to delete the data from server.
+update() : Sends http update request to update the data from server. 
