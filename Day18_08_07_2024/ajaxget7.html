@@ -1,0 +1,27 @@
+<!-- https://api.apis.guru/v2/list.json -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>GET METHOD</title>
+    </head>
+    <body>
+        <div id="demo">
+            <button onclick="getData()">click Here</button>
+        </div>
+        <script>
+            function getData(){
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        //JSON.parse convert Json formatted string into Json Object
+                        response=JSON.parse(this.responseText);
+                        //Stringify converts Json object to Json String
+                        document.getElementById("demo").innerHTML = JSON.stringify(response);
+                        }
+                        };
+                        xhttp.open("GET", "https://api.apis.guru/v2/list.json", true);
+                        xhttp.send();
+            }
+        </script>
+        </body>
+        </html>

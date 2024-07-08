@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AJAX GET METHOD</title>
+    </head>
+    <body>
+        <script>
+           function displayFact(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange=function(){
+                if(this.readyState==4 && this.status==200){
+                    var response=JSON.parse(this.responseText);
+                  document.getElementById("fact").innerHTML=response.fact;
+                  document.getElementById("length").innerHTML=response.length;
+
+            }
+           };
+           xhttp.open('GET',"https://catfact.ninja/fact",true);
+           xhttp.send();
+        }
+        </script>
+    <div id="example">
+        <h3>Example Of Get Method</h3>
+        <button onclick="displayFact()">Get Fact</button><br>
+        <p id="fact"></p>
+        <p id="length"></p>
+    </div>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AJAX GET Example</title>
+</head>
+<body>
+    <div id="todos-container">
+        <button onclick="fetchTodos()">Load Todos</button>
+    </div>
+
+    <script>
+        function fetchTodos() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var todos = JSON.parse(this.responseText);
+                    displayTodo(todos);
+                }
+            };
+            xhttp.open("GET", "https://jsonplaceholder.typicode.com/todos", true);
+            xhttp.send();
+        }
+
+        function displayTodo(todos) {
+            var container = document.getElementById('todos-container');
+            // Clear any existing content
+            container.innerHTML = '<button onclick="fetchTodos()">Load Todos</button>';
+            
+            // Create and append todos
+            todos.forEach(function(todo) {
+                var todoDiv = document.createElement('div');
+                
+                // var todoUid=document.createElement('div');
+                // var todoId=document.createElement('div');
+                // var todoTitle = document.createElement('div');
+                // var todoCompleted = document.createElement('div');
+                // todoUid.textContent="User Id: "+todo.userId;
+                // todoId.textContent="Id: "+todo.id;
+                // todoTitle.textContent = "Title: " + todo.title;
+                // todoCompleted.textContent = "Completed: "+todo.completed;
+                todoDiv.textContent=`User Id : ${todo.userId}, Id :${todo.id}, Title :${todo.title}, Completed :${todo.completed}`;
+
+                // todoDiv.appendChild(todoUid);
+                // todoDiv.appendChild(todoId);
+                // todoDiv.appendChild(todoTitle);
+                // todoDiv.appendChild(todoCompleted);
+
+                container.appendChild(todoDiv);
+                var linebreak=document.createElement('br');
+                container.appendChild(linebreak);
+            });
+        }
+    </script>
+</body>
+</html>

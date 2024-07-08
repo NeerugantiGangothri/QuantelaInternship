@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AJAX GET</title>
+</head>
+<body>
+    <div id="demo">
+        <label for="index">Index:</label>
+        <input type="number" min="1" id="idx" placeholder="Enter Index">
+        <button onclick="getTodo()">Get Fact</button>
+        <p id="fact"></p>
+        <p id="length"></p>
+    </div>
+    <script>
+        function getFact() {
+            var index = document.getElementById("idx").value;
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var response = JSON.parse(this.responseText);
+                    if (index >= 1 && index <= response.length) {
+                        var resp = response[index - 1]; // Adjust index to 0-based
+                        var fact= resp.fact;
+                        var length = resp.length;
+                        document.getElementById("fact").innerHTML = "fact: " + fact;
+                        document.getElementById("length").innerHTML = "length: " + length;
+                    } else {
+                        document.getElementById("fact").innerHTML = "fact not found";
+                        document.getElementById("length").innerHTML = "";
+                    }
+                }
+            };
+            xhttp.open("GET", "https://catfact.ninja/fact", true);
+            xhttp.send();
+        }
+    </script>
+</body>
+</html>

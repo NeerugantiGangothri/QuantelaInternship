@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AJAX GET</title>
+</head>
+<body>
+    <div id="demo">
+        <label for="index">Index:</label>
+        <input type="number" min="1" id="idx" placeholder="Enter Index">
+        <button onclick="getTodo()">Get Todo</button>
+        <p id="title"></p>
+        <p id="completed"></p>
+    </div>
+    <script>
+        function getTodo() {
+            var index = document.getElementById("idx").value;
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var response = JSON.parse(this.responseText);
+                    if (index >= 0 && index <= response.length) {
+                      //  var todo = response[index]; // Adjust index to 0-based
+                        var title =response[index].title;
+                        var completed =response[index].completed;
+                        document.getElementById("title").innerHTML = "Title: " + title;
+                        document.getElementById("completed").innerHTML = "Completed: " + completed;
+                    } else {
+                        document.getElementById("title").innerHTML = "Todo not found";
+                        document.getElementById("completed").innerHTML = "";
+                    }
+                }
+            };
+            xhttp.open("GET", "https://jsonplaceholder.typicode.com/todos", true);
+            xhttp.send();
+        }
+    </script>
+</body>
+</html>

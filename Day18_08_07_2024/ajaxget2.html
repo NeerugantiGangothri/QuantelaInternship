@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Get Request in AJAX</title>
+    </head>
+<body>
+<script>
+   function displayRecords() {
+      // Creating XMLHttpRequest object
+      var xhttp = new XMLHttpRequest();
+      // Creating call back function
+      xhttp.onreadystatechange = function() {
+         //readyState==4 request-finished and response is ready
+         //this.status==200 - "OK"
+         if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("example").innerHTML = this.responseText;
+         }
+      };
+      // Open the given file
+      xhttp.open("GET", "https://jsonplaceholder.typicode.com/todos", true);
+      // Sending the request to the server
+      xhttp.send();
+   }
+</script>
+<div id="example">
+   <p>Please click on the button to fetch  record from the server</p>
+   <button type="button" onclick="displayRecords()">Click Here</button>
+</div>
+</body>
+</html>
