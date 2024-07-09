@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>AJAX POST</title>
+    </head>
+    <body>
+        <div id="demo">
+            <button onclick="postData()">Get Post Data</button>
+        </div>
+        <script>
+            function postData() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    //some apis use 200 for successfull post request others use 201 
+                    if (this.readyState == 4 && (this.status == 201 || this.status==200)) {
+                        document.getElementById("demo").innerHTML = this.responseText;
+                        }
+                        else{
+                            document.getElementById("demo").innerHTML = "Error"+this.status;
+                        }
+                        }
+                        xhttp.open("POST", "https://api.restful-api.dev/objects", true);
+                        xhttp.setRequestHeader('Content-type', 'application/json');
+                        data={
+                            id:14,
+                            name:"Android",
+                            data:{
+                                Capacity:"512 GB",
+                                Price:10000
+                            }
+                        };
+                        xhttp.send(JSON.stringify(data));
+                        }
+                        </script>
+    </body>
+</html>
+                    
+<!-- It Assigned unique id to  created field : ff80818190966d7f019096e97f4401f4
+posted field will be visible by accessing the url: https://api.restful-api.dev/objects/ff80818190966d7f019096e97f4401f4
+unique id changes for every excution -->

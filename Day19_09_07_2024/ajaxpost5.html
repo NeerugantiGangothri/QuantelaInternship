@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Create User</title>
+</head>
+<body>
+    <p id="msg"></p>
+    <div id="demo">
+        <button onclick="createUser()">Create User</button>
+    </div>
+    <script>
+        function createUser() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && (this.status == 201 || this.status ==200)) {
+                    document.getElementById("msg").innerHTML = "User created successfully!";
+                    document.getElementById("demo").innerHTML=this.responseText;
+                } else {
+                    document.getElementById("demo").innerHTML = "Failed to create user. Status: " + this.status;
+                }
+            }
+            xhttp.open("POST", "https://jsonplaceholder.typicode.com/users", true);
+            xhttp.setRequestHeader('Content-type', 'application/json');
+            var newUser = {
+                name: "Gangothri",
+                username: "gangothri",
+                email: "gangothrineeruganti@gmail.com"
+            };
+            xhttp.send(JSON.stringify(newUser));
+        }
+    </script>
+</body>
+</html>

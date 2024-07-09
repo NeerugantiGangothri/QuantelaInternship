@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>AJAX POST</title>
+    </head>
+    <body>
+        <div id="demo">
+            <button onclick="postData()">Get Post Data</button>
+        </div>
+        <script>
+            function postData() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    //some apis use 200 for successfull post request others use 201 
+                    if (this.readyState == 4 && (this.status == 201 || this.status==200)) {
+                        document.getElementById("demo").innerHTML = this.responseText;
+                        }
+                        else{
+                            document.getElementById("demo").innerHTML = "Error"+this.status;
+                        }
+                        }
+                        xhttp.open("POST", "https://reqres.in/api/users", true);
+                        xhttp.setRequestHeader('Content-type', 'application/json');
+                        data={
+                            id:7,
+                            email:"gangothrineeruganti@gmail.com",
+                            first_name:"Gangothri",
+                            last_name:"Neeruganti"
+                        };
+                        xhttp.send(JSON.stringify(data));
+                        }
+                        </script>
+    </body>
+</html>
+                    

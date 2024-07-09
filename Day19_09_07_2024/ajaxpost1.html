@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>AJAX POST</title>
+    </head>
+    <body>
+        <div id="demo">
+            <button onclick="postData()">Click Here</button>
+        </div>
+        <script>
+                var xhttp = new XMLHttpRequest();
+                let data={
+                  title:"AJAX"
+                };
+                const url="https://fakestoreapi.com/products";
+                function postData(){
+                    let xhttp=new XMLHttpRequest();
+                    xhttp.onreadystatechange=function(){
+                        if(this.readyState===4 &&  this.status === 200){
+                            document.getElementById("demo").innerHTML=this.responseText;
+                           alert("Data Posted");
+                        }
+                    }
+                    xhttp.open('POST',url,true);
+                    xhttp.send(data);
+                }
+            </script>
+    </body>
+</html>
+
+<!-- https://fakestoreapi.com/products -->
+ <!-- steps:
+ 1.Created One XMLHttpRequest
+ 2.For onreadystatechange : for every change in state like when ready state is
+    0 : Unsent
+    1 : Open will be excuted where the method is post, api url is considered and asynchronous
+    2 : send() will be called where the data is sent to the given api
+    3 : Loading
+    4 : Response is received
+3. For status code : 200 : OK
+4. response is receiven in html div element as text format.
+5. Finally data is posted successfully -->
+

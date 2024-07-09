@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Get and Post</title>
+    </head>
+    <body>
+        <div id="getdemo">
+        <button onclick="getData()">Get Data</button>
+        </div>
+        <br>
+        <div id="postdemo">
+        <button onclick="postData()">Post Data</button>
+        </div>
+        <script>
+            function getData() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200){
+                      //  response=JSON.parse(this.responseText)
+                        document.getElementById("getdemo").innerHTML=this.responseText;
+                    }
+                }
+                xhttp.open('GET','https://jsonplaceholder.typicode.com/todos',true);
+                xhttp.send();
+                }
+                function postData() {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        //status is 201 where the request is processed and new resource created
+                        if (this.readyState === 4 && (this.status === 200 || this.status===201)){
+                            document.getElementById("postdemo").innerHTML=this.responseText;
+                        }
+                        else{
+                            document.getElementById("postdemo").innerHTML="Error"+this.status;
+                        }
+                    }
+                    xhttp.open('POST','https://jsonplaceholder.typicode.com/todos',true);
+                    xhttp.setRequestHeader('Content-type', 'application/json');
+                    data={
+                        userId:1,
+                        id:201,
+                        title:"Post",
+                        completed:false
+                    };
+                    xhttp.send(JSON.stringify(data));
+                }
+        </script>    
+    </body>
+</html>    
