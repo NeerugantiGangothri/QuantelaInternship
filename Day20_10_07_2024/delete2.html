@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DELETE User</title>
+</head>
+<body>
+<script>
+    function deleteUser() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("deleteUserResult").innerHTML = "User deleted successfully.";
+            }
+        };
+        xhttp.open("DELETE", "https://jsonplaceholder.typicode.com/users/1", true);
+        xhttp.send();
+    }
+</script>
+<h2>Delete User</h2>
+<button type="button" onclick="deleteUser()">Delete User</button>
+<div id="deleteUserResult"></div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update User</title>
+</head>
+<body>
+<script>
+    function updateUser() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var response = JSON.parse(this.responseText);
+                document.getElementById("updateUserResult").innerHTML = "Updated User: " + JSON.stringify(response, null,2);
+            }
+        };
+        xhttp.open("PUT", "https://jsonplaceholder.typicode.com/users/1", true);
+        xhttp.setRequestHeader('Content-type', 'application/json');
+        xhttp.send(JSON.stringify({
+            id: 1,
+            name: "Gangothri",
+            email: "gangothrineeruganti@gmail.com"
+        }));
+    }
+</script>
+<h2>Update User</h2>
+<button type="button" onclick="updateUser()">Update User</button>
+<pre id="updateUserResult"></pre>
+</body>
+</html>
