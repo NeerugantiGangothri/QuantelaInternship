@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Jquery AJAX</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <button id="btn">Click To Get API Data</button>
+        <br>
+        <div id="demo">
+            Content will be loaded here
+        </div>
+        <script>
+            $(document).ready(function(){
+                $("#btn").click(function(){
+                    $.ajax({
+                        type:"GET",
+                        url:"https://jsonplaceholder.typicode.com/todos",
+                        success:function(data){
+                            console.log(data);
+                            var html = "<ul>";
+                                for(var i=0;i<data.length;i++){
+                                    html+="<li>"+"UserId:"+data[i].userId+"</li>";
+                                    html+="<li>"+"Id:"+data[i].id+"</li>";
+                                    html += "<li>"+"Title:"+ data[i].title + "</li>";
+                                    html += "<li>"+"Completed:" + data[i].completed + "</li>";
+                                    html+="<br>";
+                                    }
+                                    html += "</ul>";
+                                    $("#demo").html(html);
+                                    }
+                        });
+                    });
+                });
+        </script>
+    </body>
+</html>

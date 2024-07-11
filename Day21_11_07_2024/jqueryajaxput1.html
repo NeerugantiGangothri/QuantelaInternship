@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery AJAX PUT Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <button id="btn">Update User</button>
+    <div id="result">Update status and user data will be displayed here</div>
+
+    <script>
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                var putData = {
+                    name: "Gangothri",
+                    email:"gangothrineeruganti@gmail.com"
+                };
+                $.ajax({
+                    type: "PUT",
+                    url: "https://reqres.in/api/users/2", 
+                    data: JSON.stringify(putData), 
+                    contentType: "application/json",
+                    success: function(data, textStatus, jqXHR){
+                        var message = "User Updated Successfully";
+                        var updatedUser = JSON.stringify(data); // Convert updated data to string for display
+                        $("#result").html(message + "<br><br>Updated User Data:<br>" + updatedUser);
+                    },
+                    //error is call back function of ajax
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.error("Error: " + textStatus + ", " + errorThrown);
+                        $("#result").html("Error: " + textStatus);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

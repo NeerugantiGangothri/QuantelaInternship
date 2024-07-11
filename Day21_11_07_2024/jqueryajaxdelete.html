@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery AJAX DELETE Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <button id="btn">Delete Data</button>
+    <div id="result">Deletion status will be displayed here</div>
+    <script>
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                $.ajax({
+                    type: "DELETE",
+                    url: "https://jsonplaceholder.typicode.com/todos/1",
+                    success: function(data){
+                        $("#result").html("Deleted Successfully");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+

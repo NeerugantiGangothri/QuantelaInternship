@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery AJAX DELETE Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <button id="btn">Delete Data</button>
+    <div id="result">Deletion status will be displayed here</div>
+    <script>
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                $.ajax({
+                    type: "DELETE",
+                    url: "https://jsonplaceholder.typicode.com/todos/1", // Specify the resource ID to delete
+                    success: function(response){
+                        $("#result").html("Deleted Successfully");
+                    },
+                    //Error Call back function of Jquery
+                    //jqXHR: This is the jQuery XHR (XMLHttpRequest) object
+                    //status: This is the status of the XMLHttpRequest object
+                    //errorThrown: This is the text of the error message
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.error("Error: " + textStatus + ", " + errorThrown);
+                        $("#result").html("Error: " + textStatus);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

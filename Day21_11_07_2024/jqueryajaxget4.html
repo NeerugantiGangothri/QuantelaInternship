@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Jquery AJAX</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <input type="number" id="idx" placeholder="Enter Index">
+        <button id="btn">Get</button>
+        <div id="result"></div>
+        <script>
+            $(document).ready(function(){
+                $("#btn").click(function(){
+                    var idx = $("#idx").val();
+                    $.ajax({
+                        type:"GET",
+                        url:"https://jsonplaceholder.typicode.com/todos",
+                        success:function(data){
+                           if(idx>data.length){
+                            $("#result").html("Index out of range");
+                           }
+                           var item=data[idx-1];
+                           var html = "<p><b>ID:</b>"+item.id +"</p>";
+                           html += "<p><b>Title:</b>" + item.title +"</p>";
+                           html += "<p><b>Completed:</b> " + item.completed + "</p>";
+                           $("#result").html(html);
+                            }
+                    });
+                 });
+                });
+        </script>
+    </body>
+</html>

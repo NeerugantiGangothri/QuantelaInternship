@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Jquery AJAX</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <button id="btn">Post Data</button>
+        <div id="demo"></div>
+        <p id="msg"></p>
+        <script>
+            $(document).ready(function(){
+                postData={
+                        userId:1,
+                        id:201,
+                        title:"Learn Jquery",
+                        completed:true
+                    };
+                $("#btn").click(function(){
+                 $.ajax({
+                    type:"POST",
+                    url:"https://jsonplaceholder.typicode.com/todos",
+                   data:JSON.stringify(postData),
+                    contentType:"application/json",
+                    success:function(data){
+                        var html="<p><b>User Id:</b>"+ data.userId+"</p>";
+                        html+="<p><b>ID:</b>"+ data.id + "</p>";
+                        html += "<p><b>Title:</b>" + data.title + "</p>";
+                        html += "<p><b>Completed:</b>" + data.completed + "</p>";
+                        $("#demo").html(html);
+                        $("#msg").html(`<b> Data Posted Successfully!!! </b>`);
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

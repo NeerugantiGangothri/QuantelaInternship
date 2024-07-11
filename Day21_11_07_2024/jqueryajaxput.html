@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jquery AJAX</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <button id="btn">Put Data</button>
+        <div id="result"></div>
+        <script>
+            $(document).ready(function(){
+                putData={
+                    userId:1,
+                    id:1,
+                    title:"updated title",
+                    completed:false
+                };
+                $("#btn").click(function(){
+                    $.ajax({
+                        type:"PUT",
+                        url:"https://jsonplaceholder.typicode.com/todos/1",
+                        data:JSON.stringify(putData),
+                        contentType:"application/json",
+                        success:function(data){
+                        var html = "<p><b>ID:</b> " + data.id + "</p>";
+                        html += "<p><b>Title:</b> " + data.title + "</p>";
+                        html += "<p><b>Completed:</b> " + data.completed + "</p>";
+                        html += "<p><b>User ID:</b> " + data.userId + "</p>";
+                        $("#result").html(html);
+                        console.log("Updated Successfully");
+                        }
+                        });
+                });
+            });
+        </script>
+    </body>
+</html>
