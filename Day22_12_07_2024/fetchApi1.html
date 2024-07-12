@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fetch API POST Request Example</title>
+</head>
+<body>
+    <h1>Fetch API POST Request Example</h1>
+    <button onclick="postData()">Send Data</button>
+    <div id="result"></div>
+
+    <script>
+        const apiURL = 'https://jsonplaceholder.typicode.com/posts';
+        const res = document.getElementById("result");
+
+        // Data to be sent in the POST request
+        const postDataObj = {
+            title: 'post title',
+            body: 'post body',
+            userId: 1
+        };
+
+        // Function to send data using POST request
+        function postData() {
+            // Use fetch to make a POST request to the API endpoint
+            fetch(apiURL, {
+                method: 'POST', 
+                headers: {
+                    'Content-Type': 'application/json' // Set the Content-Type header to JSON
+                },
+                body: JSON.stringify(postDataObj) // Convert the data object to a JSON string
+            })
+            .then(response => {
+                // Parse the JSON response
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+                // Display the response data in the result div
+                res.innerText = `Post ID: ${data.id}\nTitle: ${data.title}\nBody: ${data.body}\nUser ID: ${data.userId}`;
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+        }
+    </script>
+</body>
+</html>

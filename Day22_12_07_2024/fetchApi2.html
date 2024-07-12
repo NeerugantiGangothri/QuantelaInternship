@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fetch API Example - PUT Request</title>
+</head>
+<body>
+    <h1>Fetch API Example - PUT Request</h1>
+    <button onclick="updatePost()">Update Data</button>
+    <div id="result"></div>
+
+    <script>
+        const apiURL = 'https://jsonplaceholder.typicode.com/posts/1'; 
+        const res = document.getElementById("result");
+        // Data to be sent in the PUT request
+        const updateData = {
+            id: 1,
+            title: 'updated title',
+            body: 'updated body',
+            userId: 1
+        };
+
+        // Function to send data using PUT request
+        function updatePost() {
+            fetch(apiURL, {
+                method: 'PUT', 
+                headers: {
+                    'Content-Type': 'application/json' // Set the Content-Type header to JSON
+                },
+                body: JSON.stringify(updateData) // Convert the data object to a JSON string
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                res.innerHTML = `<br>Post ID: ${data.id}<br>Title: ${data.title}<br>Body: ${data.body}<br>User ID: ${data.userId}`;
+            })
+            .catch(error => console.error('There was a problem with the fetch operation:', error));
+        }
+    </script>
+</body>
+</html>

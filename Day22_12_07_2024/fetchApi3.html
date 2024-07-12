@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fetch API Example - DELETE Request</title>
+</head>
+<body>
+    <h1>Fetch API Example - DELETE Request</h1>
+    <button onclick="deletePost()">Delete Post</button>
+    <div id="result"></div>
+
+    <script>
+        const apiURL = 'https://jsonplaceholder.typicode.com/posts/1'; // Delete post with ID 1
+        const res = document.getElementById("result");
+
+        // Function to send DELETE request
+        function deletePost() {
+            fetch(apiURL, {
+                method: 'DELETE' 
+            })
+            .then(response => {
+                if (response.ok) {
+                    return 'Post Deleted!';
+                } 
+            })
+            .then(message => {
+                console.log(message);
+                // Display the message in the result div
+                res.innerHTML = message;
+            })
+            .catch(error => console.error('There was a problem with the fetch operation:', error));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!--   fetch Api Provides interface for sending and receiving Data
+ it uses request and response objects
+ the fetch method is used to fetch the resources
+ Syntax:
+ let promise=fetch(url,[options])
+ url is the url of the resource to be fetched
+ options is an object that contains optional parameters -->
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fetch API Example</title>
+</head>
+<body>
+    <h1>Fetch API Example</h1>
+    <button onclick="fetchData()">Fetch Data</button>
+    <div id="result"></div>
+
+    <script>
+        const apiURL = 'https://jsonplaceholder.typicode.com/posts';
+        const res=document.getElementById("result");
+
+        // Function to fetch data
+        function fetchData() {
+            // Fetch data from the API endpoint
+            fetch(apiURL,{
+                method:"GET"
+            })
+                .then(response => {
+                    // Parse the JSON response
+                    return response.json();
+                })
+                .then(data => {
+                   console.log(data);
+                   //accessing particular value from json data
+                   res.innerText = data[1].body;
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+        }
+
+    </script>
+</body>
+</html>
+
