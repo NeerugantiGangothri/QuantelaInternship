@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Promises in JS</title>
+    </head>
+    <body>
+        <button onclick="getDataPromises()">Promises Example</button>
+        <div id="result"></div>
+        <script>
+            function getDataPromises() {
+                function myDisplayer(some){
+                    document.getElementById("result").innerHTML = some;
+                }
+                var promise = new Promise(function(resolve, reject) {
+                var xhttp=new XMLHttpRequest();
+                xhttp.open("GET", "https://jsonplaceholder.typicode.com/post", true);
+              xhttp.onload = function() {
+                if (this.status == 200) {
+                     //document.getElementById("result").innerText=this.responseText;
+                     //myDisplayer(this.responseText)
+                     resolve(this.responseText);
+                }
+                else{
+                   // myDisplayer("Url is Incorrect");
+                   reject("Url is Incorrect");
+                }
+            }
+            xhttp.send();
+        });
+        promise.then(
+            function(value) {myDisplayer(value);},
+            function(error) {myDisplayer(error);}
+             );
+    }
+        </script>
+    </body>
+</html>

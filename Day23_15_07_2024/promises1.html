@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Promises in JS</title>
+    </head>
+    <body>
+        <button onclick="getDataPromises()">Promises Example</button>
+        <div id="result"></div>
+        <script>
+            function getDataPromises() {
+                function myDisplayer(some){
+                    document.getElementById("result").innerHTML = some;
+                }
+                var promise = new Promise(function(resolve, reject) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status==200) { 
+                             // since ready state changes contineously during that time  
+                            //  status will be zero only , then reject will be called 
+                                resolve(this.responseText);
+                            } else {
+                                reject("Url is Incorrect");
+                            }
+                        
+                    };
+                    xhttp.open("GET", "https://jsonplaceholder.typicode.com/posts", true);
+                    xhttp.send();
+                });
+
+                promise.then(
+                    function(value) { myDisplayer(value); },
+                    function(error) { myDisplayer(error); }
+                );
+            }
+        </script>
+    </body>
+</html>
+
+
+<!-- To resolve above issue we have check ready state first whether it is equal to 4 or not then check for status -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Promises in JS</title>
+    </head>
+    <body>
+        <button onclick="getDataPromises()">Promises Example</button>
+        <div id="result"></div>
+        <script>
+            function getDataPromises() {
+                function myDisplayer(some){
+                    document.getElementById("result").innerHTML = some;
+                }
+                var promise = new Promise(function(resolve, reject) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if(this.readyState == 4){
+                        if (this.status==200) { 
+                                resolve(this.responseText);
+                            } else {
+                                reject("Url is Incorrect");
+                            }
+                        }
+                        
+                    };
+                    xhttp.open("GET", "https://jsonplaceholder.typicode.com/posts", true);
+                    xhttp.send();
+                });
+
+                promise.then(
+                    function(value) { myDisplayer(value); },
+                    function(error) { myDisplayer(error); }
+                );
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Axios</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <button id="getbtn" onclick="fetchData()">Get Data</button>
+  <div id="result1"></div>
+   <br>
+  <button id="postbtn" onclick="postData()">Post Data</button>
+  <div id="result2"></div>
+   <br>
+  <button id="putbtn" onclick="putData()">Put Data</button>
+  <div id="result3"></div>
+   <br>
+  <button id="deletebtn" onclick="deleteData()">Delete Data</button>
+  <p id="msg4"></p>
+  <div id="result4"></div>
+  <script>
+    function fetchData() {
+    //const axios = require("axios");
+axios
+  .get("https://jsonplaceholder.typicode.com/todos")
+  //if request is successfull then method will be called
+  .then((response) => {
+    console.log("Data received:", response.data);
+    const div=document.getElementById("result1");
+    div.innerHTML='';
+    // document.getElementById("result").innerHTML=JSON.stringify(response.data);
+    response.data.forEach(element => {
+      const p=document.createElement('p');
+      p.textContent=`User Id:${element.userId},
+                      ID:${element.id},
+                      Title:${element.title},
+                      Completed:${element.completed}`;
+    div.appendChild(p);
+    });
+  })
+  .catch((error) => {
+    if (error.response) {
+      // Server responded with a status code out of the range of 2xx
+      console.error(`HTTP error: ${error.response.status}`);
+    } else if (error.request) {
+      // The request was made but no response was received
+      console.error("Request error: No response received");
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      console.error("Error:", error.message);
+    }
+  });
+  }
+  function postData() {
+    axios
+    .post("https://jsonplaceholder.typicode.com/todos", {
+      userId: 1,
+      id: 101,
+      title: "Learn Ajax",
+      completed: true,
+  },{
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json;charset=UTF-8',
+    }
+  })
+      .then((response) => {
+        console.log("Data Posted:", response.data);
+        const div=document.getElementById("result2");
+        div.innerHTML='';
+        const p=document.createElement('p');
+        p.textContent=`User Id:${response.data.userId},
+        ID:${response.data.id},
+        Title:${response.data.title},
+        Completed:${response.data.completed}`
+        div.appendChild(p);
+        }
+        )
+      .catch((error) => {
+          if (error.response) {
+            console.error(`HTTP error: ${error.response.status}`);
+            } 
+          else if (error.request) {
+              console.error("Request error: No response received");
+              } 
+          else {
+                console.error("Error:", error.message);
+                }
+          });
+    }
+    function putData(){
+      axios
+      .put("https://jsonplaceholder.typicode.com/todos/1", {
+        userId: 1,
+        id: 1,
+        title: "Learn Ajax",
+        completed: false,
+    })
+    .then((response) => {
+      console.log("Data Updated:", response.data);
+      const div=document.getElementById("result3");
+      div.innerHTML=`User Id:${response.data.userId},
+      ID:${response.data.id},
+      Title:${response.data.title},
+      Completed:${response.data.completed}`;
+      })
+      .catch((error) => {
+          if (error.response) {
+            console.error(`HTTP error: ${error.response.status}`);
+            } 
+          else if (error.request) {
+              console.error("Request error: No response received");
+              } 
+          else {
+                console.error("Error:", error.message);
+                }
+          });
+    }
+    function deleteData(){
+      axios
+      .delete("https://jsonplaceholder.typicode.com/todos/1",{
+        userId: 1,
+        id: 1,
+        title: "delectus aut autem",
+        completed: false,
+      })
+      .then((response) => {
+        document.getElementById("msg4").textContent="Data Deleted Successfully";
+        console.log("Data Deleted:", response.data);
+        // const div=document.getElementById("result4");
+        // div.innerHTML=`User Id:${response.data.userId},
+        // ID:${response.data.id},
+        // Title:${response.data.title},
+        // Completed:${response.data.completed}`
+        })
+  
+      }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

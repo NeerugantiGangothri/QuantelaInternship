@@ -1,0 +1,11 @@
+Axios is a third-party HTTP client library for making network requests.
+It is promise-based and provides a clean and consistent API for handling requests and responses.
+We can add it to your project via a content distribution network (CDN) or by using a package manager (like npm). 
+Some of its core features include:
+ making XMLHttpRequests within a browser, 
+ making http requests within a node.js environment, 
+ canceling requests, and intercepting request and response.
+
+
+Axios simplifies HTTP requests with a chainable API which allows for straightforward configuration of 
+request parameters, such as headers, data, and request method.
