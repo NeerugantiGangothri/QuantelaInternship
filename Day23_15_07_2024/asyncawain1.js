@@ -39,7 +39,7 @@ handlePromise();  // after 2 seconds p1 promise printed after 5 seconds p2 print
 
 function getData(){
     //Js engine will not wait promise to resolve
-    Hii , Success
+    // Hii , Success
     p.then(res=>console.log(res));
     console.log("Hii")
 }
