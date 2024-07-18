@@ -143,5 +143,5 @@ function getEmpDetails(){
             });
         }
     function clearForm() {
-            $("#form")[0].reset();
+             $("#form").trigger("reset");
         }
