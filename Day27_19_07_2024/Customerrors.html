@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Custom Error</title>
+    </head>
+    <body>
+        Age: <input type="text" id="age"/>
+        <button onclick="checkAge()">Check Age</button>
+        <p id="error"> </p>
+        <script>
+            function checkAge() {
+                try{
+                   var age=document.getElementById("age").value;
+                   if(age==""){
+                    throw "Age is empty";
+                    }
+                    if(age<18){
+                        throw "Age is less than 18";
+                   }
+                }catch(obj){
+                     document.getElementById("error").innerHTML=obj;
+                }
+                }
+                </script>
+                </body>
+</html>
