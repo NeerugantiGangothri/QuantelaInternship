@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Attribute Selectors In Jquery</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+   <label for="check">Checkbox</label><br>
+<input type="checkbox" name="option1" value="value1"> Option 1<br>
+<input type="checkbox" name="option2" value="value2"> Option 2<br><br>
+<label for="radio">Radio</label><br>
+<input type="radio" name="choice" value="optionA"> Option A<br>
+<input type="radio" name="choice" value="optionB"> Option B
+<script>
+    $(document).ready(function() {
+    $("input[type='checkbox']").change(function() {
+     if (this.checked) {
+      // Checkbox is checked
+      console.log($(this).val() + " is checked");
+     } else {
+      // Checkbox is unchecked
+      console.log($(this).val() + " is unchecked");
+     }
+     });
+   $("input[type='radio']").change(function() {
+      console.log("Selected option: " + $(this).val());
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Attributes Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <a id="link" href="https://jquery.com/">Original Link</a>
+    <img id="img" src="jquery.png" alt="Image">
+    <button id="attributes">Set Attributes</button>
+
+    <script>
+        $(document).ready(function() {
+            $("#attributes").click(function() {
+                // Get and log the href attribute
+                var originalLink = $("#link").attr("href");
+                console.log("Original href: " + originalLink);
+
+                // Set new attributes
+                $("#link").attr("href", "https://www.example.com");
+                $("#img").attr({
+                    src: "path",
+                    alt: "New Image"
+                });
+
+                // Add a data attribute
+                $("#img").data("info", "New image info");
+
+                // Log the data attribute value
+                var imageInfo = $("#img").data("info");
+                console.log("Image data-info: " + imageInfo);
+
+                // Remove an attribute
+               // $("#myLink").removeAttr("href");
+            });
+        });
+    </script>
+</body>
+</html>

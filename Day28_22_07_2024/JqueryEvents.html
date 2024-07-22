@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+    <title>jQuery Event Basics</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#myForm").submit(function(event) {
+                event.preventDefault();
+                alert("Form submitted!");
+            });
+
+            $("#mySelect").change(function() {
+                alert("Value changed to: " + $(this).val());
+            });
+
+            $("#myInput").focus(function() {
+                $(this).css("background-color", "lightblue");
+            });
+
+            $("#myInput").blur(function() {
+                $(this).css("background-color", "white");
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="myForm">
+        <label for="myInput">Enter something:</label>
+        <input type="text" id="myInput" name="myInput">
+        <br><br>
+        <label for="mySelect">Choose an option:</label>
+        <select id="mySelect" name="mySelect">
+            <option value="Option1">Option 1</option>
+            <option value="Option2">Option 2</option>
+            <option value="Option3">Option 3</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
