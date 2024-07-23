@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Event Object in jQuery</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body style="background-color: #eef;">
+        <button id="btn1">Click Me</button>
+        <input id="input" type="text">
+
+        <a href="https://jquery.com">Click Link</a>
+        <div id="div" style="padding: 20px;">
+        </div>
+        <script>
+            $(document).ready(function(){
+                $("#btn1").on("click", function(event){
+                    // Display event type
+                    console.log("Event Type: " + event.type);
+                    // Display the element that triggered the event
+                    console.log("Event Target: " + event.target);         
+                    // Display which mouse button was clicked
+                    console.log("Which Button: " + event.which);
+                    // Stop propagation
+                  //  event.stopPropagation();
+                });
+                $("#input").on("keydown", function(event){
+                    // Display event type
+                    console.log("Event Type: " + event.type);
+                    // Display the element that triggered the event
+                    console.log("Event Target: " + event.target);         
+                    // Display which mouse button was clicked
+                    console.log("Which Button: " + event.which);
+                    // Stop propagation
+                   // event.stopPropagation();
+                });
+                $( document ).on("mousemove",function(event){
+                      $("#div").text("pageX: "+event.pageX+", pageY: " +event.pageY);
+                    });
+                // Prevent default action
+                $("a").on("click",function(event){
+                        event.preventDefault();
+                    })
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JQuery Form Events</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <form id="form">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter Name">
+            <label for="age">Age</label>
+            <input type="number" id="age" placeholder="Enter Age">
+            <input type="submit" id="submit" value="submit">
+        </form>
+        <script>
+            $(document).ready(function(){
+                $("#name").on("focus",function(){
+                    console.log("name field focused");
+                })
+                $("#name").on("blur",function(){
+                    console.log("name field blurred");
+                })
+                $("#age").on("change",function(){
+                    console.log("age field changed to "+ $(this).val());
+                })
+                $("#name").on("select",function(){
+                    console.log("name field selected");
+                })
+                $("#submit").on("submit",function(event){
+                    event.preventDefault();
+                    console.log("form submitted");
+                })
+            });
+        </script>
+    </body>
+</html>

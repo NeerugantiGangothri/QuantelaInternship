@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Event Listeners in Jquery</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- <script src="https://code.jquery.com/jquery-1.4.4.min.js"></script> -->
+    </head>
+    <body>
+        <h1>Event Listeners in Jquery</h1>
+        <p style="background-color: aqua;">Click Me</p>
+        <h2>This is Main heading2</h2>
+        <button id="btn">My Button</button>
+        <button id="on">Attach Event</button>
+        <button id="off">Detach Event</button>
+        <script>
+            $(document).ready(function(){
+                //.delegate( selector, eventType, handler )
+                //Attach a handler to one or more events for all elements that match the selector, now or in the future, based on a specific set of root elements.
+                $("body").delegate("p","click",function(){
+                       $(this).after("<p style='background-color:aqua'>Add Another Para</P>");
+                })
+                
+                var fun=function(){
+                    //$(this).after("<h2>This is heading2</h2>");
+                    $("h2").html("This is heading 2");
+                };
+                $("h2").live("click",fun);
+                //Remove event handlers previously attached using .live() from the elements.
+                //now the fun will no longer called
+                //only available in jquery version 1.4
+                $("h2").die("click",fun);
+
+                function onOff(){
+                alert("Button Clicked");
+              }
+              $("#on").on('click',function(){
+                $("#btn").on('click',onOff);
+              });
+              $("#off").on('click',function(){
+                $("#btn").off('click',onOff);
+              });
+            });
+        </script>
+    </body>
+</html>

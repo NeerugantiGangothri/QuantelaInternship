@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Jquery Form Selectors
+        </title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <form id="form">
+            <input type="text" id="txt"><br><br>
+            <input type="file"><br><br>
+            <input type="password"><br><br>
+            <input type="image"><br><br> 
+            <input type="reset"><br><br>
+            <input type="hidden"><br><br>
+            <input type="submit">        
+        </form>
+        <ul id="myList">
+
+        </ul>
+        <div id="div">Div Element</div>
+        <div id="target"></div>
+
+        <script>
+            $(document).ready(function(){
+                $("input[type='text']").css("background-color","red");
+                $("input:image").css("background-color","blue");
+                // $("input[type='hidden']").css("background-color","green");
+                $("input:reset").css("border","3px solid black");
+                $("#form").submit(function(evt){
+                    evt.preventDefault();
+                    $("#div").text("Form Submitted");
+                });
+
+
+                // var li = $( "#list li:first" ).appendTo( "#list" );
+              //  $( "#myList" ).append( $( "#myList li:first" ) );
+              $("ul").append("<li>list item1</li>");
+              $("ul").append("<li>list item2</li>");
+              //creating element in jquery
+              var target = $("#target");
+              //var newElement = $( "<div>Div Created using Jquery</div>");
+              var table="<table border='1'>";
+                table+="<th>Row</th><th>Value</th>";
+                table+="<tr><td>Row 1</td><td>Value1</td></tr>";
+                table+="<tr><td>Row 2</td><td>Value2</td></tr>";
+                table+="</table>";
+              $( target ).after(table);
+              var div1=$("#div");
+              var ele=$("<p>Paragraph Created by Jquery</p>");
+              div1.append(ele);
+             // $(div1).after(ele);
+
+            });
+        </script>
+    </body>
+</html>

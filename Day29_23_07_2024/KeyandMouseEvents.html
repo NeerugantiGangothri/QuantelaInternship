@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Event Helpers</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+    <body>
+        <button id="btn">Click Me</button>
+        <br><br>
+        <div id="div">Hover or Double-click Me</div>
+        <br><br>
+        <form id="form">
+            <label for="input">Enter something:</label>
+            <input type="text" id="input" name="input">
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+    <script>
+        $(document).ready(function() {
+            $("#btn").click(function() {
+                alert("Button was clicked!");
+            });
+
+            $("#div").dblclick(function() {
+                alert("Element was double-clicked!");
+            });
+            $("#input").keydown(function() {
+                console.log("Key down");
+            });
+
+            $("#input").keyup(function() {
+                console.log("Key up");
+            });
+
+            $("#input").keypress(function() {
+                console.log("Key pressed");
+            });
+
+            $("#div").mouseenter(function() {
+                $(this).css("background-color", "lightgreen");
+            });
+
+            $("#div").mouseleave(function() {
+                $(this).css("background-color", "white");
+            });
+        });
+    </script>
+</html>
