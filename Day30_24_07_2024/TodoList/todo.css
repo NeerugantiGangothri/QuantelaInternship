@@ -1,0 +1,43 @@
+#container {
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#task {
+    padding: 10px;
+    /* margin-bottom: 10px; */
+}
+
+#btn {
+    margin-left: 5px;
+    padding: 10px;
+   background-color: palegoldenrod;
+}
+
+#list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#list li {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#complete {
+    padding: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+    background-color: lightblue;
+}
+ #delete {
+    padding: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+    background-color: red;
+}
