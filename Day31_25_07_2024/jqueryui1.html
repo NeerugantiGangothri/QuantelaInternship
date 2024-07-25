@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <!-- <script src="C:\Users\Gangothri N\Downloads\jquery-ui-1.13.3.custom.zip"></script> -->
+    <style>
+        #select .ui-selected { background: blue; }
+      </style>
+</head>
+  <body>
+    <div id="div" style="width: 100px; height: 100px; background: #ccc; border: 1px solid #000;">
+        Drag me
+    </div><br><br>
+    <div id="div1" style="width: 100px; height: 100px; background: #ccc; border: 1px solid #000;">Resize Me</div><br><br>
+    <div id="drop" style="width: 100px; height: 100px; background: #ccc; border: 1px solid #000;">
+        <p>Drop here</p>
+      </div><br><br>
+    <ol id="select">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ol>
+    <ul id="sort">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+  <script>
+    $(function() {
+      $("#div").draggable();
+      $("#div1").resizable();
+      $("#drop").droppable({
+        drop: function(event, ui) {
+          $(this).find("p").html("Dropped!");
+        }
+      });
+      $("#select").selectable();
+      $("#sort").sortable();
+      
+    });
+  </script>
+</body>
+</html>

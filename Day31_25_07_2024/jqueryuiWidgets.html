@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jquery Widgets</title>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    </head>
+    <body>
+        <!-- accordion -->
+        <div id="accordion">
+            <h3>Section 1</h3>
+            <div>
+              <p>Content 1</p>
+            </div>
+            <h3>Section 2</h3>
+            <div>
+              <p>Content 2</p>
+            </div>
+        </div><br><br>
+
+        <!-- autocomplete -->
+        <input id="autocomplete"><br><br>
+
+        <!-- datepicker -->
+        <input id="datepicker" type="text"><br><br>
+
+        <!-- dialogue box -->
+        <button id="opener">Open Dialog</button>
+       <div id="dialog" title="Basic dialog">
+        <p>This is a basic dialog.</p>
+       </div><br><br>
+
+       <!-- selectmenu -->
+       <select id="slectmenu">
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+       </select><br><br>
+
+       <!-- Tabs -->
+       <div id="tabs">
+        <ul>
+          <li><a href="#tabs-1">Tab 1</a></li>
+          <li><a href="#tabs-2">Tab 2</a></li>
+          <li><a href="#tabs-3">Tab 3</a></li>
+        </ul>
+        <div id="tabs-1">
+          <p>Content for tab 1.</p>
+        </div>
+        <div id="tabs-2">
+          <p>Content for tab 2.</p>
+        </div>
+        <div id="tabs-3">
+          <p>Content for tab 3.</p>
+        </div>
+       </div><br><br>
+
+       <!-- Spinner -->
+       <input id="spinner">
+    <script>
+     $(function() {
+         //Displays collapsible content panels.
+        $("#accordion").accordion();
+
+        //Provides suggestions while the user types in an input field.
+         var skills= ["Java", "Javascript", "Node Js", "HTML", "CSS", "C", "C++"];
+        $("#autocomplete").autocomplete({
+          source: skills
+       });
+
+       //Provides a calendar for selecting dates.
+        $("#datepicker").datepicker();
+
+       // Creates modal or non-modal dialogs.
+        $("#dialog").dialog({
+           autoOpen: false
+        });
+       $("#opener").on("click", function() {
+         $("#dialog").dialog("open");
+        });
+
+        //Enhances <select> elements with a custom styled menu. It will be similar like drop down list in html
+        $("#selectmenu").selectmenu();
+
+        //Creates tabbed navigation for content sections.
+        $("#tabs").tabs();
+
+        //Provides a numeric input with up and down buttons.
+        $("#spinner").spinner();
+        });
+    </script>
+    </body>
+</html>
