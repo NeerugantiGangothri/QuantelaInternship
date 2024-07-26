@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Change Background Color Plugin</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="color-change">This is a div.</div>
+    <div class="color-change">This is another div.</div>
+    <div>This div will not change color.</div>
+    <button id="change-color-btn">Change Color</button>
+
+    <script>
+      // jQuery plugin definition
+      //$.fn: Refers to jQuery’s function prototype object where you can add custom methods.
+      //If you need to change background color in multiple places, this plugin is better and simple to use 
+      //one of the main advantages Reusability,Encapsulation,
+      $.fn.changeBackgroundColor = function(color) {
+        return this.each(function() {
+          var $this = $(this);
+          $this.css('background-color', color);
+        });
+      };
+      // Document ready function
+      $(function() {
+        $('#change-color-btn').click(function() {
+          $('.color-change').changeBackgroundColor('lightblue');
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+jQuery plugins are tools that extend the functionality of jQuery, 
+enabling you to add features and create interactive and dynamic web elements more easily. 
+Here are some popular jQuery plugins :
+
+1.jQuery UI:
+Adds user interface interactions, effects, widgets, and themes.
+Provides functionalities like drag-and-drop, resizing, and more.
+
+2.DataTables:
+Enhances HTML tables with advanced interaction controls.
+Adds features like pagination, filtering, and sorting.
+
+3.Slick Carousel:
+A responsive and flexible carousel/slider.
+Supports multiple layouts, autoplay, and various animations.
+
+4.Chosen:
+Enhances select boxes with search functionality.
+Allows multi-select and adds a user-friendly interface.
+
+5.jQuery Validation:
+Simplifies form validation.
+Provides custom validation rules and messages.
+
+6.Select2:
+Enhances select boxes with search, tagging, and remote data sets.
+Supports AJAX for loading data.
+
+7.jQuery Mask Plugin:
+Simplifies input masking.
+Ensures user input follows a specified format (e.g., phone numbers, dates).
+
+8.FullCalendar:
+A full-featured calendar plugin.
+Allows for event management, drag-and-drop, and various views (monthly, weekly, daily).
+
+9.Magnific Popup:
+Creates responsive and fast lightbox popups.
+Supports images, galleries, iframes, and AJAX content.
+
+10.Isotope:
+Provides a layout library for filtering and sorting elements.
+Creates grid layouts with animated transitions.
+
+11.jQuery File Upload:
+Facilitates file uploads with drag-and-drop support.
+Provides progress bars and allows multiple file uploads.
+
+12.Owl Carousel:
+A touch-enabled jQuery plugin that lets you create beautiful responsive carousel sliders.
+Supports custom animations, auto-play, and various other options.
+
+
+in jquery plugins can be defined by immediately invoked function, the primary purpose of an Immediately Invoked Function is to allow us to have our own private variables
+for ex:
+(function ( $ ) {
+ 
+    $.fn.greenify = function() {
+        this.css( "color", "green" );
+        return this;
+    };
+ 
+}( jQuery ));
