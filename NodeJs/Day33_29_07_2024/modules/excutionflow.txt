@@ -1,0 +1,22 @@
+Excution Flow
+Starting Point: app.js:
+
+When you run node app.js in the terminal, Node.js starts executing app.js.
+
+Require Statement:
+Node.js encounters the require('./math') statement and starts executing math.js.
+
+Execution of math.js:
+In math.js, the add function is defined.
+The add function is then assigned to module.exports.
+
+Back to app.js:
+The require('./math') statement in app.js evaluates to the add function from math.js.
+Now, const math = require('./math'); means that math is the add function.
+
+Calling the Function:
+The math(2, 3) call in app.js is effectively calling the add function with the arguments 2 and 3.
+
+Output:
+The result of math(2, 3) is 5.
+This result is then logged to the console with the message: "The Value is 5".
