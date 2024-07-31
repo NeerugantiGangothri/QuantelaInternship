@@ -1,0 +1,10 @@
+Middleware in Node.js, especially within the context of Express.js, refers to functions that have access to the request object (req), the response object (res), 
+and the next middleware function in the application’s request-response cycle.
+Middleware functions can perform various tasks, such as executing code, making changes to the request and response objects, ending the request-response cycle, and calling the next middleware function.
+
+Types of Middleware
+Application-level Middleware: Bind middleware to an instance of express() using app.use() or app.METHOD(), where METHOD is the HTTP method (e.g., GET, POST).
+Router-level Middleware: Bind middleware to an instance of express.Router().
+Error-handling Middleware: Handle errors that occur during the request-response cycle.
+Built-in Middleware: Provided by Express.js to handle common tasks (e.g., serving static files).
+Third-party Middleware: Provided by third-party packages to extend functionality.
