@@ -1,1 +1,5 @@
 Put delete request using Node Js
+
+PUT/user/1 - Edit the user with ID 1
+
+DELETE/user/1 -Delete the User with ID 1
