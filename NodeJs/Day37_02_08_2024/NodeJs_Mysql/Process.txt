@@ -1,0 +1,31 @@
+After Installing Mysql 
+in command prompt
+Excute these commands: mysql --version
+                       mysql -u root -p
+                       show databases
+
+Create one  database : create mydb;
+                       use mydb;
+
+Create one table in mydb : 
+CREATE TABLE employees (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100),
+  position VARCHAR(100),
+  salary DECIMAL(10, 2)
+);
+ 
+In node js install required packages like express, sql and all.
+
+Create a Database Configuration File: Which is used to connect mysql from node js
+install mysql package using command
+npm install mysql2
+
+Run the Node.js Application
+after successfull connection estabilsihment you will get
+Server running at http://localhost:3000/
+Connected to MySQL as id 15
+
+By using tha url ;  http://localhost:3000/employees 
+we can see the data in the table.
+if we insert or delete or update or anything we have done on employees table will be resembled in the local host so then the Mysql connection is estabilished correctly 
