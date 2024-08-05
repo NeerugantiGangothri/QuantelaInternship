@@ -31,19 +31,18 @@ app.post('/api/users',(req,res)=>{
 app.put('/api/users/:id', (req, res) => {
     const id = Number(req.params.id);
     const userIndex = users.findIndex((user) => user.id === id);
+    const data = req.body;
 
     if (userIndex !== -1) {
-        //The spread operator (...) is used to merge objects
-        //{ ...users[userIndex] }: This creates a shallow copy of the existing user object. All the properties of the user object are included in the new object.
         // { ...req.body }: This includes all the properties from req.body in the new object. 
-         const updatedUser = { ...users[userIndex], ...req.body };
+         users[userIndex] = {id : id , ...data};
         //Updates the user in the users array at the found index with the new data.
         users[userIndex] = updatedUser;
         file.writeFile('./MOCK_DATA.json', JSON.stringify(users), (err) => {
             if (err) {
                 return res.status(500).json({ status: 'Error', message: 'Failed to update user' });
             }
-            return res.json({ status: 'Success', message: `User with ID ${id} updated`, user: updatedUser });
+            return res.json({ status: 'Success', message: `User with ID ${id} updated`, user: data });
         });
     } else {
         return res.status(404).json({ status: 'Error', message: 'User not found' });
