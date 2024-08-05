@@ -37,7 +37,6 @@ app.put('/api/users/:id', (req, res) => {
         // { ...req.body }: This includes all the properties from req.body in the new object. 
          users[userIndex] = {id : id , ...data};
         //Updates the user in the users array at the found index with the new data.
-        users[userIndex] = updatedUser;
         file.writeFile('./MOCK_DATA.json', JSON.stringify(users), (err) => {
             if (err) {
                 return res.status(500).json({ status: 'Error', message: 'Failed to update user' });
