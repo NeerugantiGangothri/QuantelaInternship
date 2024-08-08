@@ -1,0 +1,23 @@
+EJS (Embedded JavaScript) is a simple templating language that lets you generate HTML markup with plain JavaScript. 
+It's commonly used in Node.js applications to render HTML pages dynamically. 
+EJS allows you to embed JavaScript code directly within your HTML, making it easy to create dynamic and data-driven web pages.
+
+How EJS Works
+EJS works by mixing HTML with special EJS tags that can include JavaScript code. 
+When the template is rendered, the EJS tags are replaced with the appropriate JavaScript output.
+
+EJS Tags
+<%= %>: Outputs the value of the JavaScript expression, with escaping .
+<%- %>: Outputs the value of the JavaScript expression without escaping.
+<% %>: Executes the JavaScript code but does not output anything.
+
+
+
+Explanation For Code:
+
+Setting Up EJS: app.set('view engine', 'ejs');
+This line tells Express to use EJS as the templating engine.
+
+Rendering a Template: res.render('index', data);
+This line renders the index.ejs template and passes the data object to it. 
+The properties of the data object (title and message) are accessible in the template.
