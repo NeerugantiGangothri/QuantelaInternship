@@ -1,0 +1,39 @@
+The Access Token Which is generated for user is for example:
+   
+   eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1SXp4eVcydUVTR1g0TG9mIiwiaWF0IjoxNzIzNDQyNjU3LCJleHAiOjE3MjM0NDYyNTcsInN1YiI6ImFjY2Vzc0FwaSJ9.ntrdhSV4nZvmDvrwTeeJ8V9hWXFeOF6G8N8w7719WPE
+
+This  json web token conatins 3 parts 
+1. Header : Header in JWT token contains some metadata about the token. we as users don't have to write anything into it.
+2. Payload : Payload is the information that we have to add to the token for any further use.
+3. Signature : Signature is the URLencoded text which is made using Header, Payload, and Secret available in the server. 
+   The same secret is to be used to extract information from tokens in the future.
+   The Secret is used so that only authorized servers can only decode Token.
+
+
+creating JWT
+
+
+jwt.sign(payload, secretOrPrivateKey, options)
+
+Payload:
+{ userId: user._id }, where user._id is the unique identifier for the user in your database.
+payload conatins the claims that are statements about the user or entity.
+
+secretOrPrivateKey:
+This is a secret key (config.accessTokenSecret) used to sign the JWT. It ensures the token's integrity, meaning the token cannot be altered without detection.
+
+accessTokenSecret:
+This is a string value ('myAccessTokenSecret') used as the secret key to sign the JWT.
+It ensures that the JWT is only verifiable by servers that have this secret key.
+When you call jwt.sign(), you provide this secret key to generate a signed token. 
+When you later verify the token (using jwt.verify()), you use the same secret key to ensure the token’s integrity.
+
+The security of your token relies on the secrecy of accessTokenSecret. Only your server knows this secret, so only your server can generate and verify these tokens.
+If a token is altered in any way, verification with accessTokenSecret will fail, and the token will be considered invalid.
+
+
+JWT Functions:
+JWT.sign()
+JWT.verify()
+
+
