@@ -1,0 +1,48 @@
+[{
+  "_id": {
+    "$oid": "66bb307ac7672b7d16cba88f"
+  },
+  "name": "Gangothri",
+  "password": "$2b$10$or9B0ojTlgMhijKnTWwgUO8T32dW8fpjOEAT/HEuhql2.ygntJbuO",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66bb30a9c7672b7d16cba892"
+  },
+  "name": "John",
+  "password": "$2b$10$m3AHyTlUDCs4Luyk1VhIa.sSNwA.Pn8CCnIb/jOBDcPN9tYylYUSy",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66bb316221837e020d0881d3"
+  },
+  "name": "Alice",
+  "password": "$2b$10$kUUOPd4WvpSqB5HSpHr02e64ysGyHGVZ3mZ7J5ZCgQ4tSAtMaUvAy",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66bb3c2eea2f2e81ef46dc65"
+  },
+  "name": "Ram",
+  "password": "$2b$10$smjy0LcGUYpgWGRIYx0zSuUgu.HzqRnSoFcWTXk8dxazGACqlKsIK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66bb3d9a677d6fc83183d757"
+  },
+  "name": "Priya",
+  "password": "$2b$10$RH9Jfdnupd50yv1F0k50NO4k9hGA4epTHBtoi2W9Bf3DtGlFTDsSu",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66bb3e594ac6d94f8c10f8b6"
+  },
+  "name": "Raj",
+  "password": "$2b$10$qVnGfE9U0W6upGgJJYTUnu9PyNPFrNSyjJQv0T5podwIGD34Q3sEe",
+  "__v": 0
+}]
