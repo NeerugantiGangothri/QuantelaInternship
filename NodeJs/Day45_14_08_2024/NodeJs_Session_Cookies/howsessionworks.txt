@@ -1,0 +1,36 @@
+Session Middleware Setup:
+
+
+
+Authentication Middleware:
+
+authMiddleware is a custom middleware function that checks whether the user is logged in by looking for req.session.user. 
+If the session exists, the next() function is called to pass control to the next route handler. 
+If the user is not logged in, a 401 Unauthorized response is sent, preventing access to the protected route.
+
+
+Public Routes:
+
+GET /: This is a public route accessible to everyone, showing a simple welcome message.
+GET /login: Simulates user login by storing user data in the session. In this case, a user with the username JohnDoe is created in the session.
+GET /logout: Logs the user out by destroying the session, effectively removing all session data (including user authentication).
+
+
+Protected Routes:
+
+GET /dashboard and GET /settings: These routes are protected by the authMiddleware. Users must be logged in (i.e., have a session) to access these routes. If the session contains the user object, access is granted and the content is displayed; otherwise, the user is denied access with a 401 Unauthorized status.
+Server:
+
+The server is listening on port 3000, similar to the previous example.
+How This Example is Useful:
+Restricted Access: This example shows how to use session management to protect certain parts of your website or application (like a dashboard or settings page) and only allow logged-in users to access them.
+
+Session-Based Security: By checking for a session, you can ensure that sensitive areas of the application are not exposed to users who haven’t logged in.
+
+Personalized Experience: Once the user is logged in, you can use session data to personalize their experience (e.g., displaying their username on the dashboard).
+
+
+
+
+
+

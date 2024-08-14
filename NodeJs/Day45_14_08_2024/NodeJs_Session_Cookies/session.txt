@@ -1,0 +1,23 @@
+How Session Management Is Useful:
+Maintaining User State:
+Sessions allow the server to remember information about a user across multiple HTTP requests. 
+HTTP is a stateless protocol, meaning each request/response cycle is independent of the other. 
+With session management, we can persist data such as login status, shopping carts, preferences, etc., across different pages of a website.
+
+Login/Logout:
+session management helps track whether a user is logged in or not. 
+Once a user logs in, their information is stored in the session and can be used to provide a personalized experience in future requests without asking the user to log in again.
+
+Security:
+Sessions also improve security by storing sensitive data (like login status) on the server instead of relying on cookies or other client-side mechanisms that might be more vulnerable to tampering. 
+Even though session data is stored on the server, it can be easily accessed through the session ID stored in the user's cookie.
+
+Scalability:
+By using sessions, state information is stored server-side, meaning the application can maintain multiple concurrent users, each with their own independent session. 
+The session middleware automatically manages this, ensuring data isolation between different users.
+
+
+
+
+
+
