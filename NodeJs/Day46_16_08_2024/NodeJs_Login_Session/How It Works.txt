@@ -1,0 +1,24 @@
+How It Works
+Session Creation or Update: 
+When a user successfully logs in, the session data is set using req.session. 
+If the session does not already exist for the user, express-session creates a new session. 
+If a session already exists (from a previous login), it updates the session with the new data.
+
+Session Storage: 
+The data stored in req.session is kept on the server. 
+By default, express-session uses an in-memory store, but you can configure it to use other stores like Redis, MongoDB, or a file store for persistence across server restarts.
+
+Session ID Cookie: 
+Along with storing session data on the server, a unique session ID is generated and sent to the client's browser as a cookie. 
+This session ID cookie is sent with every subsequent request, allowing the server to retrieve the associated session data.
+
+Retrieving Session Data: 
+On subsequent requests, express-session uses the session ID from the cookie to retrieve the stored session data. 
+For example, in the /home route, req.session.userName is used to access the stored username for rendering the page.
+
+
+Login Request: The user sends a POST request to the /login route with their credentials.
+User Validation: The server validates the credentials and, if successful, sets the session data.
+Session Creation: The session is created or updated with the user's ID and name.
+Session ID Cookie: A session ID cookie is sent to the client's browser.
+Subsequent Requests: The browser sends the session ID cookie with each request, allowing the server to access the session data.
