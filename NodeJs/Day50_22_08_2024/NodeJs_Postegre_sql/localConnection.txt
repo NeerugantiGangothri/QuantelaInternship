@@ -1,0 +1,39 @@
+1.Install SQLTools Extension .
+Go to the Extensions view in VS Code.
+Search for and install "SQLTools."
+Install the PostgreSQL Driver for SQLTools.
+
+Search for "SQLTools PostgreSQL" in the Extensions view and install it.
+
+Add a New Connection:
+Press Ctrl + Shift + P to open the Command Palette.
+Type SQLTools: Add New Connection and select it.
+Choose "PostgreSQL" as the database driver.
+
+
+Enter Connection Details:
+Name: Name the connection (e.g., local_pg).
+Server/Host: Enter localhost.
+Port: The default is 5432.
+Database: Enter the name of your local database.
+Username: Enter your PostgreSQL username (e.g., postgres).
+Password: Enter your PostgreSQL password.
+
+
+Test and Save the Connection:
+Click "Test Connection" to ensure everything is working.
+If successful, save the connection.
+
+
+5. Use the Connection in VS Code
+we can create table and can isert values into table using sql commands
+
+
+
+
+
+
+
+
+
+
