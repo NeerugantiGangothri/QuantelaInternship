@@ -12,7 +12,6 @@ const pool = new Pool({
   port: 5432,
 });
 
-// Sign Up Route
 router.get('/signup', (req, res) => {
   res.render('signup');
 });
@@ -30,7 +29,6 @@ router.post('/signup', async (req, res) => {
   }
 });
 
-// Login Route
 router.get('/login', (req, res) => {
   res.render('login');
 });
@@ -61,7 +59,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Logout Route
+
 router.get('/logout', (req, res) => {
   req.session.destroy();
   res.redirect('/employee/login');
