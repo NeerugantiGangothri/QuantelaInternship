@@ -78,51 +78,5 @@ router.get('/', ensureAuthenticated, ensureAdmin, async (req, res) => {
   }
 });
 
-// Edit User (Admin Only)
-router.get('/edit/:id', ensureAuthenticated, ensureAdmin, async (req, res) => {
-  const userId = req.params.id;
-  
-  try {
-    const result = await pool.query('SELECT * FROM employee WHERE id = $1', [userId]);
-    if (result.rows.length > 0) {
-      res.render('edit', { user: result.rows[0] });
-    } else {
-      res.status(404).send('User not found');
-    }
-  } catch (err) {
-    console.error('Error executing query', err.stack);
-    res.status(500).send('Server Error');
-  }
-});
-
-router.post('/edit/:id', ensureAuthenticated, ensureAdmin, async (req, res) => {
-  const userId = req.params.id;
-  const { username, email, role } = req.body;
-  
-  try {
-    await pool.query('UPDATE employee SET username = $1, email = $2, role = $3 WHERE id = $4', [username, email, role, userId]);
-    res.redirect('/employee');
-  } catch (err) {
-    console.error('Error executing query', err.stack);
-    res.status(500).send('Server Error');
-  }
-});
-
-// Delete User (Admin Only)
-router.post('/delete/:id', ensureAuthenticated, ensureAdmin, async (req, res) => {
-  const userId = req.params.id;
-  
-  try {
-    const result = await pool.query('DELETE FROM employee WHERE id = $1', [userId]);
-    if (result.rowCount > 0) {
-      res.redirect('/employee');
-    } else {
-      res.status(404).send('User not found');
-    }
-  } catch (err) {
-    console.error('Error executing query', err.stack);
-    res.status(500).send('Server Error');
-  }
-});
 
 module.exports = router;
