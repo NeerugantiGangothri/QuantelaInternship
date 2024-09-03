@@ -1,0 +1,33 @@
+FILE UPLOAD AND DOWNLOAD IN NODE JS
+
+1.Libraries
+Express
+Multer: Middleware for handling multipart/form-data, which is used for file uploads.
+Installation: npm install multer
+
+Upload Route:
+Purpose: Handle incoming file uploads.
+Method: POST request.
+Use multer to handle file upload and save it to the server.
+
+Download Route:
+Purpose: Serve files for download.
+Method: GET request.
+Use Express to serve static files from a directory or use res.download() to send files directly.
+
+Setting Of Multer Storage:
+Multer requires a storage engine to store uploaded files. There are several storage engines available, including local
+storage, disk storage, and gridfs storage.
+
+Disk Storage:
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads/');
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    }
+});
+
+Usage: This is the most common storage engine used when you want to save files locally on the server.
+Configuration: You can configure DiskStorage by specifying the destination (where to save the files) and filename (what to name the files).
