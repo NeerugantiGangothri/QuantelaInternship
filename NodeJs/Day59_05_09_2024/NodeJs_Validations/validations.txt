@@ -1,0 +1,54 @@
+Importance of input validation
+
+Prevention from Injection Attacks: 
+When your application is vulnerable to SQL Injection attacks. 
+This vulnerability arises due to the poor handling of SQL code during user authentication through an authentication form. 
+An attacker can exploit this by passing some malicious SQL code instead of user credentials and gaining access to the server, which is game over for the application.
+
+Data Integrity and Consistency: 
+When user input is validated, it creates consistency in data being stored in servers, thus making it complicated to work with the data. 
+For example, if a user can send text data in input for age, it creates inconsistency in the data stored in the server.
+
+Data Compatibility: 
+The data type must be consistent when data is used at various endpoints in a big organization. 
+For instance, if users can enter garbage data instead of a proper email in their email credentials, it could cause complications when the organization needs to contact the user.
+
+Enhanced User Experience: 
+When inputs are validated, a developer can create logic to send appropriate and immediate feedback to users, allowing them to correct the invalid input they provided. 
+This enhances the overall User Experience.
+
+Terminology:
+- **Input Validation**: The process of checking user input to ensure it meets the expected format and constraints
+- **Data Validation**: The process of checking data to ensure it meets the expected format and constraints
+- **Data Sanitization**: The process of removing or modifying malicious data to prevent attacks
+- **Validation Chain**: A validation chain in Express-Validator is a sequence of validators or sanitizers applied on an input.
+
+Installing Express-Validator:
+npm install Express-Validator
+
+Validation
+The body() method of the Express-Validator fetches the values of HTML components having the name attribute same as the argument of the body() method.
+The check() method of the Express-Validator is used to validate the input data.
+For Ex:
+isEmail(),notEmpty(),isDate(),isURL() 
+validationResult()-To handle Errors
+
+Sanitization
+The sanitizeBody() method of the Express-Validator is used to sanitize the input data.
+For Ex:
+escape(),trim(),toBoolean(),toNumber()
+
+Validation Chain
+Validation chains are created by body(), param() etc.
+For Ex:
+body('name').isLength({ min: 5 }).withMessage('Length must be 5');
+body('email')
+    //mark the field as optional
+    .optional()
+    //and when it's present, trim its value, then validate it as an email address
+    .trim()
+    .isEmail(),
+
+
+
+
