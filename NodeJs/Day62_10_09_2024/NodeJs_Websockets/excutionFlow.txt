@@ -1,0 +1,19 @@
+Client Side:
+The user loads the page, which establishes a WebSocket connection (socket = io()).
+The user types a message in the input field and clicks the "Send" button.
+The JavaScript captures the message and emits a 'user-message' event to the server via WebSocket.
+
+Server Side:
+The server receives the 'user-message' event from the client.
+The server broadcasts the message to all connected clients (using io.emit('message', message)), including the sender.
+
+Back to Client Side:
+Each connected client (including the sender) receives the broadcasted message through the 'message' event.
+The message is appended to the chat-box in each client's UI, showing the sent message.
+This two-way communication loop allows for real-time chat functionality.
+
+Key Terminology:
+The WebSocket connection is initiated when the page loads.
+The message is sent from the client to the server using socket.emit().
+The server broadcasts the message back to all clients using io.emit().
+The clients receive the message and display it in the chat box.
