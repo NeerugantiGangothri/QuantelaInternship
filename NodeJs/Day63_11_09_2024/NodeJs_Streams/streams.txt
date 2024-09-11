@@ -1,0 +1,13 @@
+Types of Streams:
+Readable Streams: These streams let you read data from a source, like HTTP requests or file reads.
+
+Example: fs.createReadStream() for reading files.
+Writable Streams: These streams let you write data to a destination, like HTTP responses or file writes.
+
+Example: fs.createWriteStream() for writing files.
+Duplex Streams: These streams are both readable and writable.
+
+Example: TCP sockets (net.Socket) are duplex streams.
+Transform Streams: These are a special type of duplex stream where the output is computed based on the input.
+
+Example: zlib.createGzip() for compressing data.
