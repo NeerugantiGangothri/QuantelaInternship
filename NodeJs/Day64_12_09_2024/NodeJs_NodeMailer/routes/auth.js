@@ -15,7 +15,6 @@ const generateOTP = () => {
     return crypto.randomInt(100000, 999999).toString();
 };
 
-// Send OTP via email
 const sendOTPEmail = async (email, otp) => {
     //nodemailer creates transport object to send mails
     const transporter = nodemailer.createTransport({
