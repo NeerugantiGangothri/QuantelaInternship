@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "title": "New Post Title",
+    "content": "Content of the new post",
+    "date": "2024-09-13T12:07:02.862Z"
+  },
+  {
+    "id": 2,
+    "title": "New Post Title-1",
+    "content": "Content of the new post-1",
+    "date": "2024-09-13T12:07:21.072Z"
+  }
+]
