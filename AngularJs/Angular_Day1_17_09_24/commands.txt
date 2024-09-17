@@ -1,0 +1,101 @@
+IDE : VS Code
+
+npm install -g @angular/cli
+
+ng --help
+
+ng version
+
+ng new firstProject
+
+ng serve
+
+ng test 
+
+server url : http://localhost:4200/
+
+installing angular/material
+
+ng add @angular/material
+
+-----------------------------------------------------------
+
+Folder structure and files
+
+-----------------------------------------------------------
+
+Parent Folder will be main project folder 
+
+.angular
+
+.vscode
+
+node_modules - all packages will be installed here 
+
+editorconfig - make custom editor changes in this file
+
+gitignore - we can add files that we need to ignore while committing
+
+angular.json - Configure your styles, js or pipeline deployment, settings specific to your project 
+
+package.json - all dependencies and scripts will be here
+
+tsconfig.app.json - tells you the typescript configurations of the project
+
+readme.md - starting file - documentation of your project
+
+src - source code of project
+
+app - actual code of the project/application
+      -Every component in angular has 4 files
+       -html -> template 
+       -css -> styles
+       -spec.ts -> unit test file
+       -ts -> component class or logical piece of component
+    app.component.ts 
+        - selector -> app root
+    app.component.spec.ts
+        - unit testing
+    
+
+favicon - browser icon 
+
+index.html - angular is a single page application
+            there is only one html file - index.html
+            when we develop the application
+            <app-root></app-root> it is the first component to be intialised
+
+main.ts - Entry point of the project
+          it is the first file to be executed when the application is run
+
+styles.css - global styling for ur project
+
+------------------------------------------------------
+
+Angular CLI Commands:
+1. ng version
+2. ng new project-name
+3. ng generate 
+      component 
+      service
+      module
+      pipe
+      directive
+      routing
+      interface
+      model
+      class
+
+4. ng test -> used for running the unit test
+   -> .spec.ts
+
+5. ng serve -> build and launch application locally
+
+6. ng build -> when its production ready
+               dist folder
+               index.html
+               styles.css
+               polyfills.js
+               main.js
+
+   
