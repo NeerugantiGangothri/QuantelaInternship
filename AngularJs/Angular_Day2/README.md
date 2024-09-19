@@ -1,8 +1,8 @@
 # Angular Components Guide
-## Table of Contents
-Introduction
-Creating a Component
-Component Structure
+ Table of Contents
+Introduction,
+Creating a Component,
+Component Structure,
 Data Binding in Components:
     `Interpolation`
     `Property Binding`
@@ -11,9 +11,8 @@ Data Binding in Components:
 Component Interaction:
     `@Input()`
     `@Output()`
-Lifecycle Hooks
-Styling Components
-Best Practices
+Lifecycle Hooks,
+Styling Components,
 ## Introduction
 In Angular, components are the building blocks of the user interface (UI). Each component represents a view and is responsible for displaying and managing data, handling user interactions, and rendering the appropriate view.
 
