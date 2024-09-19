@@ -1,0 +1,34 @@
+Angular - 17 Component In Angular
+---------------------------------------
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
+})
+
+1.Components are declared using @component decorator
+2.@component decorator have multiple inputs/parameters
+  ->selector - it is the name which can be used in application
+  ->standalone - By default all angular applications are standalone
+                 No need to declare in module
+  ->Imports provide all required modules for this project
+  ->templateUrl - it is the path of html file
+                - we can use template if we have limited html
+  ->styleUrl - it is css or stylesheet for the component
+             - we can use styles if we want include inline styles
+
+3. Structure of Component
+  <componentName>.component.html -> template/html/ui
+  <componentName>.component.css/scss -> Styelesheet for the component
+  <componentName>.component.spec.ts -> unit test for the component
+  <componentName>.component.ts -> class for the component / logic
+
+4. Component Data flow 
+   @input - used for sending data to the component
+   @output - used for sending data from the component
+
+5. Components life cycle
+   -> Right from creation -> [8 stages] -> destroy
