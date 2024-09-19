@@ -1,5 +1,4 @@
 # Angular Components Guide
- Table of Contents
 Introduction,
 Creating a Component,
 Component Structure,
